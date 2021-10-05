@@ -17,4 +17,10 @@ class CategoryController extends Controller
     {
         return response()->json($this->category_repository->index());
     }
+
+    public function store(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $name = $request->input('name');
+        return response()->json($this->category_repository->store($name));
+    }
 }
