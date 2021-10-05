@@ -23,4 +23,26 @@ class CategoryController extends Controller
         $name = $request->input('name');
         return response()->json($this->category_repository->store($name));
     }
+
+    public function show($id): \Illuminate\Http\JsonResponse
+    {
+        return response()->json($this->category_repository->find($id));
+    }
+
+    public function update(Request $request, $id): \Illuminate\Http\JsonResponse
+    {
+        $name = $request->input('name');
+        return response()->json($this->category_repository->update($id, $name));
+    }
+
+    public function destroy($id): \Illuminate\Http\JsonResponse
+    {
+        return response()->json($this->category_repository->destroy($id));
+    }
+
+    public function search(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $search = $request->input('search');
+        return response()->json($this->category_repository->search($search));
+    }
 }
