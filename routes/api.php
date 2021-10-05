@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\WordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('category', CategoryController::class);
 Route::post('category/search', [CategoryController::class, 'search']);
+
+Route::apiResource('word', WordController::class);
+Route::post('word/search', [WordController::class, 'search']);

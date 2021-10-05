@@ -11,8 +11,8 @@ class Word extends Model
 
     protected $fillable = ['name', 'url', 'category_id'];
 
-    public function words(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasMany(Word::class);
+        return $this->belongsTo(Category::class);
     }
 }

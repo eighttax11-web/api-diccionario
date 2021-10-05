@@ -11,8 +11,8 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function words(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Word::class);
     }
 }
