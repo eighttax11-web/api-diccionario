@@ -10,4 +10,9 @@ class Word extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'url', 'category_id'];
+
+    public function words(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Word::class);
+    }
 }
