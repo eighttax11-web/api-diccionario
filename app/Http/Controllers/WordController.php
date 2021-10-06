@@ -49,4 +49,9 @@ class WordController extends Controller
         $search = $request->input('search');
         return response()->json($this->word_repository->search($search));
     }
+
+    public function getWordsByCategory($id): \Illuminate\Http\JsonResponse
+    {
+        return response()->json($this->word_repository->getWordsByCategory($id));
+    }
 }

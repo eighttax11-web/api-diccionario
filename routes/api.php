@@ -23,5 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('category', CategoryController::class);
 Route::post('category/search', [CategoryController::class, 'search']);
 
+Route::get('word/category/{id}', [WordController::class, 'getWordsByCategory']);
 Route::apiResource('word', WordController::class);
 Route::post('word/search', [WordController::class, 'search']);
+

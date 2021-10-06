@@ -68,4 +68,9 @@ class WordRepository
     {
         return Word::where('name', 'like', '%' . $search . '%')->get();
     }
+
+    public function getWordsByCategory($id)
+    {
+        return Word::where('category_id', $id)->get();
+    }
 }
