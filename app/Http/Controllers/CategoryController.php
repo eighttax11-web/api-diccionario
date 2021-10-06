@@ -21,7 +21,8 @@ class CategoryController extends Controller
     public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         $name = $request->input('name');
-        return response()->json($this->category_repository->store($name));
+        $url = $request->input('url');
+        return response()->json($this->category_repository->store($name, $url));
     }
 
     public function show($id): \Illuminate\Http\JsonResponse
@@ -32,7 +33,8 @@ class CategoryController extends Controller
     public function update(Request $request, $id): \Illuminate\Http\JsonResponse
     {
         $name = $request->input('name');
-        return response()->json($this->category_repository->update($id, $name));
+        $url = $request->input('url');
+        return response()->json($this->category_repository->update($id, $name, $url));
     }
 
     public function destroy($id): \Illuminate\Http\JsonResponse

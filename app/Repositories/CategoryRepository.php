@@ -11,9 +11,10 @@ class CategoryRepository
         return Category::all();
     }
 
-    public function store($name)
+    public function store($name, $url)
     {
         $new_category['name'] = $name;
+        $new_category['url'] = $url;
 
         return Category::create($new_category);
     }
@@ -23,7 +24,7 @@ class CategoryRepository
         return Category::where('id', '=', $id)->first();
     }
 
-    public function update($id, $name)
+    public function update($id, $name, $url)
     {
         $category = $this->find($id);
 
@@ -32,6 +33,7 @@ class CategoryRepository
         }
 
         $category->name = $name;
+        $category->url = $url;
         $category->save();
         return $category;
     }
