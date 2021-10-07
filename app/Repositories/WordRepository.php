@@ -71,6 +71,11 @@ class WordRepository
 
     public function getWordsByCategory($id)
     {
-        return Word::where('category_id', $id)->get();
+//         $words = Word::where('category_id', $id)->get();
+//         $words = Word::with('category')->get();
+//         return $words->toArray();
+
+         return Word::where('category_id', $id)->get()->load('category');
+
     }
 }
